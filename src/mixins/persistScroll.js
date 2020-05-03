@@ -12,7 +12,7 @@ let persistScroll = {
   },
   created() {
     if (window.history && window.history.pushState) {
-
+      var self = this;
       window.onpopstate = function() {
         var hashLocation = location.hash;
         var hashSplit = hashLocation.split("#!/");
@@ -21,7 +21,7 @@ let persistScroll = {
         if (hashName !== '') {
           var hash = window.location.hash;
           if (hash === '') {
-            window.scrollTo(0, sessionStorage.getItem(`${this.$route.name}ScrollPos`) || 0);
+            window.scrollTo(0, sessionStorage.getItem(`${self.$route.name}ScrollPos`) || 0);
           }
         }
       };
