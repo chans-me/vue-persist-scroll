@@ -12,7 +12,9 @@
 </template>
 
 <script>
+import persistScroll from '../mixins/persistScroll';
 export default {
-  name: "home-component"
+  name: "home-component",
+  mixins: [persistScroll],
 };
 </script>

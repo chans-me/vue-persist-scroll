@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import persistScroll from '../mixins/persistScroll';
 export default {
   name: "details-component",
   data() {
@@ -18,16 +19,16 @@ export default {
       product: {}
     };
   },
+  mixins: [persistScroll],
   methods: {
-    getProductData(id) {
-      this.product = this.$services.API.getProductDetails(id);
+    async getProductData(id) {
+      console.log("api call triggered");
+      let result = await this.$services.API.getProductDetails(id);
+      this.product = result;
     },
-    goBack() {
-      this.$router.back();
-    },
+    initializeData() {
+      this.getProductData(this.$route.params.id);
+    }
   },
-  created() {
-    this.getProductData(this.$route.params.id);
-  }
 };
 </script>

@@ -120,5 +120,10 @@ export function getListData() {
 }
 
 export function getProductDetails(id) {
-  return data.filter(item => item.id === id)[0];
+  return new Promise((resolve) => {
+    for (var i = 0; i< data.length; i++) {
+      if (data[i].id == id) resolve(data[i])
+    }
+  })
+  
 }

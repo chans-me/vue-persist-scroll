@@ -34,11 +34,12 @@ export default {
   mixins: [persistScroll],
   methods: {
     getData() {
+      console.log("api call triggered");
       this.productList = this.$services.API.getListData();
     },
+    initializeData() {
+      this.getData();
+    }
   },
-  created() {
-    this.getData();
-  }
 };
 </script>

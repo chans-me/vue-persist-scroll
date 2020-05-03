@@ -7,6 +7,9 @@ Vue.prototype.$services = services.default;
 Vue.config.productionTip = false;
 
 new Vue({
+  data: {
+    state: {},
+  },
   router,
   render: h => h(App)
 }).$mount("#app");
