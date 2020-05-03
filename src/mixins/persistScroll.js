@@ -56,7 +56,6 @@ let persistScroll = {
           var hash = window.location.hash;
           if (hash === '') {
             self.backClicked = true;
-            // window.scrollTo(0, self.$root.state[`${self.$route.name}ScrollPos`] || 0);
           }
         }
       };
